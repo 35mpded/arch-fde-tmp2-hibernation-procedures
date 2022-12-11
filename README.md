@@ -348,6 +348,19 @@ I suggest the following procedure:
    B. If the system prompts for password input: you are good to go just regenerate the TPM binding.
 
 ***
+## 6 ERRORS & WORKAROUNDS
+**Failed to mount /boot/efi:**
+When you apply updates, sometimes, the OS will not be able to mount vfat with the following error:
+
+`mount: /boot/efi: unkown filesystem type 'vfat'`
+
+To fix this issue:
+1. Open the boot menu
+2. Select boot from HDD (instead of EFI)
+3. Regenerate the Unfied Kernel Image as per section 3 in this guide.
+4. Regenerate the TPM bindings since TPM unlock will fail, due to the new Kernel Image
+5. Reboot from EFI. Issue should be fixed.
+
 Other:
 1.	https://wiki.archlinux.org/title/Unified_kernel_image
 2. https://wiki.archlinux.org/title/EFISTUB
